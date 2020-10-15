@@ -19,7 +19,7 @@ class ParentWindow(Frame):
         self.varBrowse = StringVar()
         self.varBrowse2 = StringVar()
 
-        self.lblFName = Label(self.master,text = 'Chose file to transfer from:',font=("Helvetica", 16), fg='black', bg='lightgrey')
+        self.lblFName = Label(self.master,text = 'Choose file to transfer from:',font=("Helvetica", 16), fg='black', bg='lightgrey')
         self.lblFName.grid(row=0, column=0,padx=(15,0), pady=(15,0))
 
         self.btnBrowse = Button(self.master, text='Browse...', width=15, height=1, command=self.askdirectory )
@@ -28,7 +28,7 @@ class ParentWindow(Frame):
         self.txtBrowse = Entry(self.master, text=self.varBrowse, font=("Helvetica", 16), fg='black', bg='lightblue')
         self.txtBrowse.grid(row= 2, column=1, columnspan=6, padx=(15,0), pady=(15,0))
 
-        self.lblFName = Label(self.master,text = 'Chose file to transfer to:',font=("Helvetica", 16), fg='black', bg='lightgrey')
+        self.lblFName = Label(self.master,text = 'Choose file to transfer to:',font=("Helvetica", 16), fg='black', bg='lightgrey')
         self.lblFName.grid(row=3, column=0,padx=(15,0), pady=(15,0))
 
 
@@ -43,6 +43,9 @@ class ParentWindow(Frame):
 
         self.btnClose = Button(self.master, text='Close Program', width=15, height=2, command=self.Close)
         self.btnClose.grid(row=5, column=4,padx=(15,0), pady=(15,0))
+
+        self.lblDisplay = Label(self.master,text = '',font=("Helvetica", 12), fg='black', bg='lightgrey')
+        self.lblDisplay.grid(row= 6, column=0,padx=(15,0), pady=(15,0))
 
         
     def Close(self):
@@ -61,6 +64,8 @@ class ParentWindow(Frame):
         src = self.txtBrowse.get()
         dst = self.txtBrowse2.get()
         seconds_in_day = 24*60*60
+        self.lblDisplay.config(text='Your files have been Transferred!')
+        
 
         now = time.time()
         before = now - seconds_in_day  
